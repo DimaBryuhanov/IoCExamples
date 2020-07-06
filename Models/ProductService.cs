@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IoCExamples.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,16 +7,15 @@ namespace IoCExamples.Models
 {
     class ProductService
     {
-        private readonly FileLogger _fileLogger = new FileLogger();
-        private readonly DatabaseLogger _databaseLogger =
-          new DatabaseLogger();
+        private readonly ILogger _logger;
+        public ProductService(ILogger logger)
+        {
+            _logger = logger;
+        }
         public void Log(string message)
         {
-            _fileLogger.Log(message);
+            _logger.Log(message);
         }
-        public void LogToDatabase(string message)
-        {
-            _fileLogger.Log(message);
-        }
+
     }
 }

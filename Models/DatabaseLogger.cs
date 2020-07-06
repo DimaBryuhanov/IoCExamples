@@ -1,10 +1,11 @@
-﻿using System;
+﻿using IoCExamples.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace IoCExamples.Models
 {
-    class DatabaseLogger
+    class DatabaseLogger : ILogger
     {
         public void Log(string message)
         {

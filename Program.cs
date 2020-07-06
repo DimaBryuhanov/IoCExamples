@@ -1,4 +1,6 @@
-﻿using System;
+﻿using IoCExamples.Interfaces;
+using IoCExamples.Models;
+using System;
 
 namespace IoCExamples
 {
@@ -6,7 +8,9 @@ namespace IoCExamples
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            ILogger logger = new FileLogger();
+            ProductService productService = new ProductService(logger);
+            productService.Log("Hello World!");
         }
     }
 }
